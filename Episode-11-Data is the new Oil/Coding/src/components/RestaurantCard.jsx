@@ -1,4 +1,5 @@
 import { CDN_URL } from "../utils/constants";
+import { MdStars } from "react-icons/md";
 
 const RestaurantCard = (props) => {
     const { resData } = props;
@@ -8,14 +9,13 @@ const RestaurantCard = (props) => {
 
 
     return (
-        <div className="m-4 p-4 w-[250px] rounded-lg hover:bg-gray-300">
-            <img className="rounded-lg" src={CDN_URL + cloudinaryImageId}
+        <div className="m-2 w-[300px] transition ease-out delay-100 hover:-translate-y-1 hover:scale-110 hover: duration-100 transition-0.5s">
+            <img className="rounded-2xl w-[330px] h-[200px] object-cover" src={CDN_URL + cloudinaryImageId}
                 alt="res-logo" />
-            <h3 className="font-bold py-3 text-center">{name}</h3>
-            <h4>{cuisines.join(", ")}</h4>
-            <h4>{avgRating} stars</h4>
-            <h4>₹{costForTwo}</h4>
-            <h4>{sla?.slaString}</h4>
+            <h6 className="font-bold pt-2 ml-2">{name}</h6>
+            <p className="text-sm font-bold tracking-tighter ml-1">⭐{avgRating} ~ {sla?.slaString}</p>
+            <p className="ml-2 text-xs font-light">{cuisines.join(", ")}</p>
+            <h4 className="ml-2 text-xs font-semibold">{costForTwo}</h4>
         </div>
     );
 };

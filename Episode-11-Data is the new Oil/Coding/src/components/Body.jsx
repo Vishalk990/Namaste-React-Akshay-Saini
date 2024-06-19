@@ -64,18 +64,18 @@ const Body = () => {
         <Shimmer />
     ) : (
         <div className="body">
-            <div className="filter flex">
-                <div className="search m-4 p-4 flex items-center">
+            <div className="filter flex justify-evenly">
+                <div className="search m-3 p-2 flex items-center">
                     <input
                         type="text"
-                        className="border border-black py-2 px-4 rounded-lg"
+                        className="border border-black py-2 px-4 rounded-xl w-[500px]"
                         placeholder="Search any Restaurant..."
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
                     />
 
                     <button
-                        className="px-4 py-2 bg-green-400 m-4 rounded-lg"
+                        className="px-10 py-2 bg-black text-white m-4 rounded-xl hover:"
                         onClick={() => {
                             const data = filterData(searchText, listOfRestaurant);
                             setFilteredRestaurant(data);
@@ -97,19 +97,19 @@ const Body = () => {
                     </button>
                 </div>
             </div>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-around mx-44">
                 {
                     filteredRestaurant.map(restaurant => (
                         <Link
                             key={restaurant.info.id}
                             to={"/restaurants/" + restaurant.info.id}
                         >
-                            {
+                            {/* {
                                 restaurant.info.isOpen ? (
                                     <RestaurantOpened resData={restaurant} />
-                                ) : (
+                                ) : ( */}
                                     <RestaurantCard resData={restaurant} />
-                                )}
+                                {/* )} */}
                         </Link>
                     ))
                 }
